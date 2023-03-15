@@ -54,13 +54,13 @@ func checkConnection(w http.ResponseWriter, r *http.Request) {
 	k, err := openKeyboard()
 	var available string
 	if err == nil {
+		k.Close()
 		available = "true"
 	} else {
 		available = "false"
 	}
 	log.Printf("Keyboard connected status: %v", available)
 	io.WriteString(w, available)
-	k.Close()
 }
 
 func openKeyboard() (keychron.Backlight, error) {
