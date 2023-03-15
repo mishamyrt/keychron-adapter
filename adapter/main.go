@@ -8,7 +8,7 @@ import (
 )
 
 // Port on which server will be listening
-const port = 17081
+const port = 17085
 
 func main() {
 	hid.Init()
