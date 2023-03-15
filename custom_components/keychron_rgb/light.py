@@ -17,7 +17,6 @@ from homeassistant.components.light import (
     ATTR_HS_COLOR,
     ATTR_EFFECT,
     COLOR_MODE_HS,
-    COLOR_MODE_COLOR_TEMP,
     PLATFORM_SCHEMA,
     SUPPORT_EFFECT,
     LightEntity,
@@ -77,10 +76,10 @@ class KeychronRGB(LightEntity):
     _attr_supported_color_modes: Final[set[str]] = {
         COLOR_MODE_HS,
     }
+    _attr_color_mode = COLOR_MODE_HS
     # State values
-    _attr_color_mode: str = COLOR_MODE_COLOR_TEMP
     _attr_brightness: int = 255
-    _attr_is_on: bool = False
+    _attr_is_on: bool = True
     _attr_available: bool = False
 
     _attr_supported_features = SUPPORT_EFFECT
