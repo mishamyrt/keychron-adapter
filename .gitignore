@@ -1,3 +1,2 @@
-adapter/build
-venv/
+/build
 .DS_Store

@@ -1,11 +1,12 @@
-VENV_PATH = ./venv
-VENV = . $(VENV_PATH)/bin/activate;
+APP_NAME = Keychron Adapter.app
+BIN_PATH = build/keychron_adapter
 
-.PHONY: run
+.PHONY: build
+build:
+	go build -o "$(BIN_PATH)"
+	rm -rf "build/$(APP_NAME)"
+	cp -r "$(APP_NAME)" "build/"
+	mv "$(BIN_PATH)" "build/$(APP_NAME)/Contents/MacOS/"
+
 run:
-	cd adapter; go run main.go
-configure:
-	python3 -m venv $(VENV_PATH)
-	$(VENV) pip install -r requirements.txt
-clean:
-	rm -rf venv
+	go run cli/main.go
